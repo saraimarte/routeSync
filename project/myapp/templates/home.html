@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<form method = "POST" x-data="{open:false}" @submit.prevent>
+    {% csrf_token %}
+
+<div class = "box">
+    <h1>1. Upload Route </h1>
+    <input type = "file" name = "file"> 
+</div>
+
+<div class = "box">
+    <h1>2. Upload New Stops </h1>
+    <input type = "file" name = "file2"> 
+</div>
+
+<div class = "box">
+    <h1> 3. Enter Google Maps API Key </h1>
+    <input type = "text" name = "key">
+</div>
+
+<button @click = "open =! open" type = "submit"> Upload </button>
+<div x-show = "open" class="load"> </div>
+
+</form>
+
+<style>
+    /*https://codepen.io/jake-lee/pen/jrJYON*/
+ @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.load {
+	width: 100px;
+	height: 100px;
+	margin: 110px auto 0;
+	border:solid 10px #8822aa;
+	border-radius: 50%;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	 -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1.0s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+    	
+    transition: all 0.5s ease-in;
+    animation-name:             rotate; 
+    animation-duration:         1.0s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear; 
+}
+</style>
+{% endblock%}
