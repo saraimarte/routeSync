@@ -1,5 +1,6 @@
 import pandas as pd
 import pandas as pd
+import os 
 import googlemaps
 from datetime import datetime
 import numpy as np
@@ -10,8 +11,8 @@ newStops = request.FILES['file2']
 print("newStops")
 locations = pd.read_csv(locations)
 newStops = pd.read_csv(newStops)
-
-API_KEY = 'AIzaSyCNL3M0zBZvcRENh_CzsqMFRVH7CSAc2xk'
+api_key = request.POST.get("key")
+API_KEY = api_key;
 gmaps =  googlemaps.Client(key = API_KEY)
 closestLocations = []
 newDistances = []
