@@ -6,7 +6,7 @@
     {% csrf_token %}
     <div class="step"> 
         <h1>1. Upload Current Route</h1>
-        <h2>Format: Excel</h2>
+        <h2>Format: CSV</h2>
         <div x-show="open">
             <span class="fileStyle" x-text="filename"></span>
         </div>
@@ -17,7 +17,7 @@
      </div>
     <div class="step">
         <h1>2. Upload New Stops</h1>
-        <h2>Format: Excel</h2>
+        <h2>Format: CSV</h2>
         <div x-show="open2">
             <span class="fileStyle" x-text="filename2"></span>
         </div>
@@ -28,15 +28,32 @@
     </div>
     <div class="step">
         <h1> 3. Enter Google Maps API Key </h1>
-        <input type = "text" name = "key">
-        <a x-show = "open3" href = "/media/uploads/newRoute.csv" download> Download New Route </a>
+        <input id = "keyStyle" type = "text" name = "key">
+        <a x-show = "open3" href = "/media/uploads/newRoute.csv" download>  Download New Route </a>
+       <div class = "loadContainer">
         <button @click = "open4 =! open4" type = "submit"> Submit </button>
-        <div x-show = "open4" class="load"> </div>
+        <div class="load" x-show = "open4"> </div>
 
+       </div>
+       
     </div>
 </form>
 
 <style>
+    a{
+        color:black;
+    }
+    #keyStyle{
+       border:3px solid black;
+       height:30px;
+       font-family: 'Inter', sans-serif;
+
+    }
+    .loadContainer{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     /*https://codepen.io/jake-lee/pen/jrJYON*/
  @keyframes rotate {
     from {
@@ -58,10 +75,12 @@
 }
 
 .load {
-	width: 50px;
-	height: 50px;
-	margin: 110px auto 0;
-	border:solid 10px #000000;
+    position: relative;
+    right:10%;
+    top:5px;
+	width: 30px;
+	height: 30px;
+	border:solid 4px #000000;
 	border-radius: 50%;
 	border-right-color: transparent;
 	border-bottom-color: transparent;
@@ -156,6 +175,7 @@
         .step{
             width:32%;
             min-width: min-content;
+            
     }
     }
 
