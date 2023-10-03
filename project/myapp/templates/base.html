@@ -23,12 +23,18 @@
         </header>
         
         {% block content %} {% endblock %}
+
+        <p> made by <a href ="https://twitter.com/saraimartenj"> sarai</a>  with ❤️</p>
     </div>
    
 </body>
 </html>
 
 <style>
+    p{
+        position: relative;
+        left:25px;
+    }
     *{
         box-sizing: border-box;
         padding:0;
@@ -39,6 +45,7 @@
         flex-direction: column;
         height:100%;
         width:100%;
+        
 
     }
     #menu{
@@ -103,6 +110,10 @@
         justify-content:space-between;
         margin-top:50px;
         padding:0;
+    }
+
+    a{
+        color:black;
     }
 
     }
